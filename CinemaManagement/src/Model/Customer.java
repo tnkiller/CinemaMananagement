@@ -10,7 +10,7 @@ import java.text.ParseException;
  *
  * @author ADMIN
  */
-public abstract class Customer extends Person {
+public class Customer extends Person {
 
     public Customer(String userName, String password, String lastName, String firstName, String address, String phoneNum, String dob) throws ParseException {
         super(userName, password, lastName, firstName, address, phoneNum, dob);
