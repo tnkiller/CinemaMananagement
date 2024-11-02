@@ -1,5 +1,7 @@
 package Model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public abstract class Person {
@@ -11,6 +13,19 @@ public abstract class Person {
     protected String address;
     protected String phoneNum;
     protected Date dob;
+
+    public Person(){
+        
+    }
+    public Person(String userName, String password, String lastName, String firstName, String address, String phoneNum, String dob) throws ParseException {
+        this.userName = userName;
+        this.password = password;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.address = address;
+        this.phoneNum = phoneNum;
+        this.dob = setDob(dob);
+    }
 
     public String getUserName() {
         return userName;
@@ -64,8 +79,9 @@ public abstract class Person {
         return dob;
     }
 
-    public void setDob(Date dob) {
-        this.dob = dob;
+    public Date setDob(String dob) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.parse(dob);
     }
 
     @Override
